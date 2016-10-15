@@ -11,42 +11,50 @@ angular.module('app', [])
 		{
 			"index":"0",
 			"isFlipped": true,
-			"text": ""
+			"text": "",
+			"src":"1.png"
 		},
 		{
 			"index":"1",
 			"isFlipped": true,
-			"text": ""
+			"text": "",
+			"src":"3.png"
 		},
 		{
 			"index":"2",
 			"isFlipped": true,
-			"text": ""
+			"text": "",
+			"src":"2.png"
 		},
 		{
 			"index":"3",
 			"isFlipped": true,
-			"text": ""
+			"text": "",
+			"src":"6.png"
 		},
 		{
 			"index":"4",
 			"isFlipped": true,
-			"text": ""
+			"text": "",
+			"src":"4.png"
 		},
 		{
 			"index":"5",
 			"isFlipped": true,
-			"text": ""
+			"text": "",
+			"src":"5.png"
 		},
 		{
 			"index":"6",
 			"isFlipped": true,
-			"text": ""
+			"text": "",
+			"src":"7.png"
 		},
 		{
 			"index":"7",
 			"isFlipped": true,
-			"text": ""
+			"text": "",
+			"src":"8.png"
 		}
 	];
 
@@ -100,7 +108,7 @@ angular.module('app', [])
     			}
     		}else{
     			attempt++;
-   				return "Wrong Answer, Why Don't you try again";
+   				return "Movie Names Don't Match. Try Again! ";
    			}
    			
 	}
