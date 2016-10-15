@@ -7,6 +7,7 @@ angular.module('app', [])
 	$scope.message = "";
 	$scope.game_over = true;
 	var attempt = 1;
+	$scope.warning = false;
   	$scope.cards = [
 		{
 			"index":"0",
@@ -86,7 +87,7 @@ angular.module('app', [])
     			$scope.message = check()	
     		}
     	}else{
-    		alert("Please reset the game");
+    		$scope.warning = true;
     	}     		
     };
 
@@ -115,7 +116,8 @@ angular.module('app', [])
     $scope.reset = function(){
     	count = 0;
     	$scope.toCheck = false;
-    	$scope.cards[secondIndex].text = "";
+    	$scope.warning = false;
+       	$scope.cards[secondIndex].text = "";
     	$scope.cards[firstIndex].text = "";
     	$scope.cards[secondIndex].isFlipped = true;
     	$scope.cards[firstIndex].isFlipped = true;

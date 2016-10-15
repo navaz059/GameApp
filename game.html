@@ -29,13 +29,14 @@
 					</div>
 					<h1>Click On Images to start the game</h1>
 					<div class="card" ng-class="{'flipped':card.isFlipped}" ng-repeat="card in cards" ng-click="select(card)">
-    	    			<div class="face front"><div style="font-size:20;color:red">{{card.text}}</div></div> 
+    	    			<div class="face front"><div style="font-size:20;color:blue">{{card.text}}</div></div> 
        		 			<div class="face back"><img src="images/{{card.src}}" style="width:130px;height:130px;"></div> 
       				</div>
     		<div class="content-area sample-show-hide" ng-show="toCheck" style="text-align:center">
 	    				<h2>{{message}}   </h2>
 	    				<button type="button" ng-show ='game_over' class="btn btn-primary" class="btn-lg" ng-click="reset()" ng-show ='game_over'><span class="glyphicon glyphicon-repeat"></span></button>
-	  		</div>			  
+	  		</div>
+	  		<div style="font-size:10;color:red;text-align:center" ng-show = "warning"><label>Please reset the Game</label><div>			  
 	  	</div>
 	</div>  		
 	</body>
