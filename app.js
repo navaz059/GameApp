@@ -6,7 +6,6 @@ angular.module('app', [])
 	$scope.bike = 1;
 	$scope.message = "";
 	$scope.game_over = true;
-	var attempt = 1;
 	$scope.warning = false;
   	$scope.cards = [
 		{
@@ -67,14 +66,11 @@ angular.module('app', [])
 	$scope.toCheck = false;
 	$scope.movie = ["Inception","Interstellar","Dark Knight","Titanic"];
 	var count = 0;
+	
 	$scope.select = function(card) {
      	if(card.isFlipped == true && count < 2){
       		count++;
-      		if(attempt == 3){
-      			card.text = firstMovie;
-    		}else{
-    			card.text = $scope.movie[Math.floor(Math.random() * $scope.movie.length)];
-    		}
+   			card.text = $scope.movie[Math.floor(Math.random() * $scope.movie.length)];
     		card.isFlipped = false;	
     		if(count == 1){
     			firstIndex = card.index;
@@ -93,8 +89,13 @@ angular.module('app', [])
 
 	function check(){
 		if( firstMovie == secondMovie){
-				attempt = 1;	
-				if($scope.ticket > 0){
+				var total = $scope.ticket +  $scope.phone;
+				var rand = 0;
+				if(total > 0){
+					//random beteen 1 and total
+					rand = Math.floor(Math.random() * (total)) + 1;
+				}	
+				if($scope.ticket > 0 && rand <= $scope.ticket){
     				$scope.ticket = $scope.ticket - 1;
     				return "Congratulations You Won Movie Ticket For this Round.Click Reset To Play Again";
     			}
@@ -108,8 +109,7 @@ angular.module('app', [])
     				return "You Won Bumper Prize.Refresh Page to Play Again";
     			}
     		}else{
-    			attempt++;
-   				return "Movie Names Don't Match. Try Again! ";
+    			return "Movie Names Don't Match. Try Again! ";
    			}
    			
 	}
