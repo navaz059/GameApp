@@ -77,6 +77,17 @@ angular.module('app', [])
     			firstMovie = card.text; 
     		}
     		else if(count == 2){
+    			sec = [];
+    			sec.push(firstMovie);
+    			for(var i = 0 ; i < 4 ; i++){
+    				if(sec[0] != $scope.movie[i]){
+    					sec.push($scope.movie[i]);
+    				}
+    				if(sec.length == 3){
+    					break;
+    				}
+    			}
+    			card.text = sec[Math.floor(Math.random() * sec.length)];
     			secondIndex = card.index;
     			secondMovie = card.text;
     			$scope.toCheck = true;
@@ -86,13 +97,14 @@ angular.module('app', [])
     		$scope.warning = true;
     	}     		
     };
-
+// To check whether matched correctly or not in second attempt
 	function check(){
 		if( firstMovie == secondMovie){
+				// then select which prize to be given based on the no. of prize left
 				var total = $scope.ticket +  $scope.phone;
 				var rand = 0;
 				if(total > 0){
-					//random beteen 1 and total
+					// to generate a number between 1 and total prize available
 					rand = Math.floor(Math.random() * (total)) + 1;
 				}	
 				if($scope.ticket > 0 && rand <= $scope.ticket){
@@ -101,7 +113,7 @@ angular.module('app', [])
     			}
     			else if($scope.phone > 0){
     				$scope.phone -= 1;
-    				return "Congratulations You Won Movie Ticket For this Round.Click Reset To Play Again";
+    				return "Congratulations You Won Phone For this Round.Click Reset To Play Again";
     			}
     			else if($scope.bike > 0){
     				$scope.bike -= 1;
@@ -113,6 +125,7 @@ angular.module('app', [])
    			}
    			
 	}
+// To reset the values till prizes last.	
     $scope.reset = function(){
     	count = 0;
     	$scope.toCheck = false;
